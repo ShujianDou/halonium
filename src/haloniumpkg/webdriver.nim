@@ -4,7 +4,7 @@ import os, httpclient, uri, json, options, strutils, sequtils, base64, strformat
 import base64, sets
 import unicode except strip
 
-import zip / zipfiles
+#import zip / zipfiles
 import uuids, tempfile
 import exceptions, service, errorhandler, commands, utils, browser
 
@@ -1685,19 +1685,19 @@ proc submit*(element: Element) =
   else:
     discard element.execute(Command.SubmitElement)
 
-proc uploadFile*(element: Element, filename: string) =
-  let zfile = mktempUnsafe()
-  defer: zfile.removeFile
+#proc uploadFile*(element: Element, filename: string) =
+#  let zfile = mktempUnsafe()
+#  defer: zfile.removeFile
 
-  var z: ZipArchive
-  discard z.open(zfile, fmWrite)
-  z.addFile(filename.extractFilename, filename)
-  z.close()
+#  var z: ZipArchive
+#  discard z.open(zfile, fmWrite)
+#  z.addFile(filename.extractFilename, filename)
+#  z.close()
 
-  let bytes = base64.encode(zfile.readFile())
+#  let bytes = base64.encode(zfile.readFile())
 
-  let value = element.execute(Command.UploadFile, %*{"file": bytes}).unwrap(string)
-  element.sendKeys(value)
+#  let value = element.execute(Command.UploadFile, %*{"file": bytes}).unwrap(string)
+#  element.sendKeys(value)
 
 proc text*(element: Element): string =
   ## Returns the element's text, regardless of visibility
