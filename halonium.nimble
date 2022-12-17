@@ -15,5 +15,5 @@ bin           = @["halonium"]
 requires "nim >= 1.0.6"
 requires "tempfile >= 0.1.7"
 requires "uuids >= 0.1.10"
-requires "zip >= 0.3.1"
+#requires "zip >= 0.3.1"
 requires "fusion >= 1.0.0"
